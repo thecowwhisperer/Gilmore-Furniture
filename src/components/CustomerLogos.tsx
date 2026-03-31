@@ -28,14 +28,14 @@ export default function CustomerLogos() {
     <section className="bg-cream py-20 lg:py-28">
       <div
         ref={ref}
-        className="mx-auto max-w-[1800px] px-10 md:px-20 lg:px-28"
+        className="mx-auto max-w-[1440px] px-6 sm:px-10 md:px-20 lg:px-28"
       >
         <div className="mb-20 text-center">
           <motion.span
             initial={{ opacity: 0, y: 20 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.8 }}
-            className="mb-4 block text-[11px] font-semibold uppercase tracking-[0.4em] text-brass"
+            className="mb-4 block text-xs font-semibold uppercase tracking-[0.4em] text-brass"
           >
             Trusted By
           </motion.span>
@@ -53,12 +53,12 @@ export default function CustomerLogos() {
           initial={{ opacity: 0 }}
           animate={isInView ? { opacity: 1 } : {}}
           transition={{ duration: 1, delay: 0.2 }}
-          className="flex flex-wrap items-center justify-center gap-14 px-4 md:gap-20"
+          className="flex flex-wrap items-center justify-center gap-8 px-4 sm:gap-14 md:gap-20"
         >
           {customers.map((customer) => (
             <div
               key={customer.name}
-              className="relative h-10 w-24 opacity-40 grayscale transition-all duration-500 hover:opacity-100 hover:grayscale-0 md:h-12 md:w-28"
+              className="relative h-10 w-24 opacity-70 grayscale transition-all duration-500 hover:opacity-100 hover:grayscale-0 md:h-12 md:w-28"
             >
               <Image
                 src={customer.logo}
@@ -75,7 +75,7 @@ export default function CustomerLogos() {
           initial={{ opacity: 0 }}
           animate={isInView ? { opacity: 1 } : {}}
           transition={{ duration: 0.8, delay: 0.4 }}
-          className="mt-18 text-center"
+          className="mt-20 text-center"
         >
           <Link
             href="/customers"

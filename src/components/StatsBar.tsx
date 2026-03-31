@@ -33,7 +33,7 @@ export default function StatsBar() {
 
   return (
     <section ref={ref} className="border-b border-white/10 bg-slate-900 py-14">
-      <div className="mx-auto flex max-w-[1800px] flex-col items-center justify-around gap-10 px-10 md:flex-row md:px-20 lg:px-28">
+      <div className="mx-auto flex max-w-[1440px] flex-col items-start justify-around gap-10 px-6 sm:px-10 md:flex-row md:items-center md:px-20 lg:px-28">
         {stats.map((stat, i) => (
           <motion.div
             key={stat.label}
@@ -49,7 +49,7 @@ export default function StatsBar() {
               <h3 className="font-serif text-lg font-semibold text-white">
                 {stat.label}
               </h3>
-              <p className="text-[11px] uppercase tracking-[0.15em] text-white/40">
+              <p className="text-xs uppercase tracking-[0.15em] text-white/70">
                 {stat.sublabel}
               </p>
             </div>

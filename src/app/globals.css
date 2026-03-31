@@ -1,6 +1,9 @@
 @import "tailwindcss";
 
+@custom-variant dark (&:is(.dark *));
+
 :root {
+  color-scheme: light;
   --color-cream: #f5f0ea;
   --color-cream-dark: #ebe4db;
   --color-charcoal: #1a1a1a;
@@ -10,12 +13,14 @@
   --color-brass-light: #d4b162;
   --color-walnut: #3d2b1f;
   --color-linen: #faf8f5;
-  --color-muted: #8a8178;
+  --color-muted: #544b44;
   --color-slate-900: #0f172a;
   --color-slate-800: #1e293b;
   --color-slate-50: #f8fafc;
   --color-brand-accent: #b8953e;
   --color-brand-red: #c0392b;
+  --color-burnt-orange: #c45e2c;
+  --color-burnt-orange-light: #d4763f;
 }
 
 @theme inline {
@@ -34,6 +39,8 @@
   --color-slate-50: var(--color-slate-50);
   --color-brand-accent: var(--color-brand-accent);
   --color-brand-red: var(--color-brand-red);
+  --color-burnt-orange: var(--color-burnt-orange);
+  --color-burnt-orange-light: var(--color-burnt-orange-light);
   --font-serif: var(--font-cormorant);
   --font-sans: var(--font-geist-sans);
 }
@@ -44,7 +51,13 @@
   }
 
   html {
-    scroll-behavior: auto;
+    scroll-behavior: smooth;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
   }
 
   body {
@@ -62,7 +75,30 @@
   }
 
   ::-webkit-scrollbar {
-    width: 0px;
+    width: 8px;
+    height: 8px;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: var(--color-stone);
+    border-radius: 999px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: var(--color-linen);
+  }
+
+  a:focus-visible,
+  button:focus-visible {
+    outline: 2px solid var(--color-brass);
+    outline-offset: 3px;
+  }
+
+  input:focus-visible,
+  textarea:focus-visible,
+  select:focus-visible {
+    outline: 2px solid var(--color-brass);
+    outline-offset: 2px;
   }
 
   img {
@@ -93,19 +129,58 @@
   animation: marquee 40s linear infinite;
 }
 
+@media (prefers-reduced-motion: reduce) {
+  .grain-overlay::after {
+    animation: none;
+  }
+
+  .animate-marquee {
+    animation: none;
+    transform: translateX(0);
+  }
+}
+
+.logo-white {
+  background-color: white;
+  -webkit-mask-image: url('/images/Gilmore-Logo_9f627029.png');
+  -webkit-mask-size: contain;
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-position: left center;
+  mask-image: url('/images/Gilmore-Logo_9f627029.png');
+  mask-size: contain;
+  mask-repeat: no-repeat;
+  mask-position: left center;
+}
+
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
 .grain-overlay::after {
   content: "";
   position: fixed;
-  top: -50%;
-  left: -50%;
-  right: -50%;
-  bottom: -50%;
-  width: 200%;
-  height: 200%;
+  top: -10%;
+  left: -10%;
+  right: -10%;
+  bottom: -10%;
+  width: 120%;
+  height: 120%;
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
   background-repeat: repeat;
-  animation: grain 8s steps(10) infinite;
+  animation: grain 8s steps(10) 3;
   pointer-events: none;
   z-index: 9999;
   opacity: 0.3;
+  will-change: transform;
+}
+
+@media (max-width: 768px) {
+  .grain-overlay::after {
+    animation: none;
+    opacity: 0.15;
+  }
 }

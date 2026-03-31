@@ -1,7 +1,7 @@
 "use client";
 
-import { motion, useScroll, useTransform, useInView } from "framer-motion";
-import { useRef } from "react";
+import { motion, useInView } from "framer-motion";
+import { useRef, useCallback } from "react";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -10,43 +10,63 @@ const components = [
     title: "Conference Table Bases",
     description:
       "Grade A select and balanced veneer faces laminated over a smooth and concentric core, with fully enclosed ends.",
-    image: "/images/WC18_Gilmore__57-420x280_cdfddacb.jpg",
+    image: "/images/components/conference-table-bases/cumberland_WS_MT_metros_001.jpg",
   },
   {
     title: "Wood Furniture Components",
     description:
       "Table legs, rails, skirts, tops, bases, bench parts, and door frames in any species, unfinished or finished.",
-    image: "/images/WC18_Gilmore__65-293x449_c05f5377.jpg",
+    image: "/images/components/wood-furniture-components/wood%20components.jpg",
   },
   {
     title: "Metal Furniture Components",
     description:
       "Stainless steel, carbon steel, and aluminum fabrications from simple components to complex parts.",
-    image: "/images/WC18_Gilmore__15-420x280_3d793e9b.jpg",
+    image: "/images/components/metal-furniture-components/metal%20components.jpg",
   },
   {
     title: "Other Components",
     description:
       "Marine components, rub rail, fittings, and polished 316 stainless steel hardware.",
-    image: "/images/other-metal-components-1-420x280_cf20020c.jpg",
+    image: "/images/components/other-components/Generated%20Image%20March%2031%2C%202026%20-%201_36PM.jpg",
   },
 ];
 
 export default function ComponentsShowcase() {
-  const sectionRef = useRef<HTMLDivElement>(null);
   const headerRef = useRef<HTMLDivElement>(null);
+  const scrollRef = useRef<HTMLDivElement>(null);
   const isInView = useInView(headerRef, { once: true, margin: "-80px" });
+  const isDragging = useRef(false);
+  const startX = useRef(0);
+  const scrollLeft = useRef(0);
 
-  const { scrollYProgress } = useScroll({
-    target: sectionRef,
-    offset: ["start end", "end start"],
-  });
+  const onPointerDown = useCallback((e: React.PointerEvent<HTMLDivElement>) => {
+    const el = scrollRef.current;
+    if (!el) return;
+    isDragging.current = true;
+    startX.current = e.clientX;
+    scrollLeft.current = el.scrollLeft;
+    el.setPointerCapture(e.pointerId);
+    el.style.cursor = "grabbing";
+  }, []);
 
-  const x = useTransform(scrollYProgress, [0, 1], ["5%", "-25%"]);
+  const onPointerMove = useCallback((e: React.PointerEvent<HTMLDivElement>) => {
+    if (!isDragging.current || !scrollRef.current) return;
+    const dx = e.clientX - startX.current;
+    scrollRef.current.scrollLeft = scrollLeft.current - dx;
+  }, []);
+
+  const onPointerUp = useCallback((e: React.PointerEvent<HTMLDivElement>) => {
+    isDragging.current = false;
+    if (scrollRef.current) {
+      scrollRef.current.releasePointerCapture(e.pointerId);
+      scrollRef.current.style.cursor = "";
+    }
+  }, []);
 
   return (
-    <section ref={sectionRef} className="overflow-hidden bg-cream-dark py-24 lg:py-32">
-      <div className="mx-auto max-w-[1800px] px-10 md:px-20 lg:px-28">
+    <section className="overflow-hidden bg-cream-dark py-24 lg:py-32">
+      <div className="mx-auto max-w-[1440px] px-6 sm:px-10 md:px-20 lg:px-28">
         <div
           ref={headerRef}
           className="mb-20 flex flex-col gap-6 md:flex-row md:items-end md:justify-between"
@@ -56,7 +76,7 @@ export default function ComponentsShowcase() {
               initial={{ opacity: 0, y: 20 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.8 }}
-              className="mb-4 block text-[11px] font-semibold uppercase tracking-[0.4em] text-brass"
+              className="mb-4 block text-xs font-semibold uppercase tracking-[0.4em] text-brass"
             >
               Supply Chain
             </motion.span>
@@ -85,8 +105,14 @@ export default function ComponentsShowcase() {
         </div>
       </div>
 
-      {/* Horizontal scroll */}
-      <motion.div style={{ x }} className="flex gap-10 pl-10 md:pl-20 lg:pl-28">
+      <div
+        ref={scrollRef}
+        onPointerDown={onPointerDown}
+        onPointerMove={onPointerMove}
+        onPointerUp={onPointerUp}
+        onPointerCancel={onPointerUp}
+        className="flex gap-6 overflow-x-auto scroll-smooth snap-x snap-mandatory pl-6 pr-6 pb-4 sm:gap-10 sm:pl-10 md:pl-20 lg:pl-28 cursor-grab scrollbar-hide select-none"
+      >
         {components.map((comp, i) => (
           <motion.div
             key={comp.title}
@@ -97,9 +123,9 @@ export default function ComponentsShowcase() {
               delay: 0.1 * i,
               ease: [0.16, 1, 0.3, 1],
             }}
-            className="w-[400px] flex-shrink-0 md:w-[480px]"
+            className="w-[280px] flex-shrink-0 snap-start sm:w-[400px] md:w-[480px]"
           >
-            <Link href="/components" className="group block">
+            <Link href="/components" className="group block" draggable={false}>
               <div className="relative mb-8 aspect-[4/3] overflow-hidden rounded-sm">
                 <Image
                   src={comp.image}
@@ -107,6 +133,7 @@ export default function ComponentsShowcase() {
                   fill
                   className="object-cover transition-transform duration-700 group-hover:scale-105"
                   sizes="460px"
+                  draggable={false}
                 />
                 <div className="absolute inset-0 bg-black/0 transition-colors duration-500 group-hover:bg-black/10" />
               </div>
@@ -121,7 +148,7 @@ export default function ComponentsShowcase() {
             </Link>
           </motion.div>
         ))}
-      </motion.div>
+      </div>
     </section>
   );
 }

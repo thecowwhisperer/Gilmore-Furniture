@@ -21,7 +21,7 @@ export default function Philosophy() {
       ref={sectionRef}
       className="relative overflow-hidden bg-linen py-24 lg:py-32"
     >
-      <div className="mx-auto max-w-[1800px] px-10 md:px-20 lg:px-28">
+      <div className="mx-auto max-w-[1440px] px-6 sm:px-10 md:px-20 lg:px-28">
         <div className="grid items-center gap-20 lg:grid-cols-2 lg:gap-32">
           {/* Left — Image */}
           <motion.div
@@ -41,11 +41,11 @@ export default function Philosophy() {
                 />
               </motion.div>
             </div>
-            <div className="absolute -bottom-6 -right-6 hidden border border-brass/20 p-10 lg:block">
-              <span className="font-serif text-5xl font-light text-brass/30">
+            <div className="absolute -bottom-6 -right-6 hidden border border-brass/30 bg-white p-10 shadow-[0_4px_24px_rgba(0,0,0,0.06)] lg:block">
+              <span className="font-serif text-5xl font-light text-walnut">
                 40+
               </span>
-              <p className="mt-1 text-[11px] uppercase tracking-[0.2em] text-muted">
+              <p className="mt-1 text-xs uppercase tracking-[0.2em] text-charcoal">
                 Years of Excellence
               </p>
             </div>
@@ -57,7 +57,7 @@ export default function Philosophy() {
               initial={{ opacity: 0, y: 20 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.8 }}
-              className="mb-6 text-[11px] font-semibold uppercase tracking-[0.4em] text-brass"
+              className="mb-6 text-xs font-semibold uppercase tracking-[0.4em] text-brass"
             >
               The Process
             </motion.p>

@@ -2,7 +2,7 @@
 
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
-import Link from "next/link";
+import Button from "@/components/Button";
 
 export default function Newsletter() {
   const ref = useRef<HTMLDivElement>(null);
@@ -18,15 +18,15 @@ export default function Newsletter() {
 
       <div
         ref={ref}
-        className="mx-auto max-w-[1800px] px-10 md:px-20 lg:px-28"
+        className="mx-auto max-w-[1440px] px-6 sm:px-10 md:px-20 lg:px-28"
       >
-        <div className="mx-auto flex max-w-5xl flex-col items-center gap-20 rounded-sm border border-white/[0.06] bg-white/[0.02] p-14 text-center md:flex-row md:p-20 md:text-left">
+        <div className="mx-auto flex max-w-5xl flex-col items-center gap-12 rounded-sm border border-white/[0.06] bg-white/[0.02] p-8 text-center sm:gap-20 sm:p-14 md:flex-row md:p-20 md:text-left">
           <div className="flex-1">
             <motion.p
               initial={{ opacity: 0, y: 20 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.8 }}
-              className="mb-6 text-[11px] font-semibold uppercase tracking-[0.4em] text-brass"
+              className="mb-6 text-xs font-semibold uppercase tracking-[0.4em] text-brass"
             >
               Get Started
             </motion.p>
@@ -46,7 +46,7 @@ export default function Newsletter() {
               initial={{ opacity: 0, y: 20 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 1, delay: 0.2 }}
-              className="mt-6 text-[15px] leading-[1.8] text-white/35"
+              className="mt-6 text-[15px] leading-[1.8] text-white/60"
             >
               Whether you need complete solutions, custom components, or
               engineering support — let&apos;s discuss how Gilmore can become
@@ -60,16 +60,12 @@ export default function Newsletter() {
             transition={{ duration: 1, delay: 0.3 }}
             className="flex flex-col gap-5"
           >
-            <Link
-              href="/quote"
-              className="group relative overflow-hidden border border-brass px-12 py-5 text-center text-[12px] uppercase tracking-[0.2em] text-brass transition-all duration-500 hover:text-white"
-            >
-              <span className="relative z-10">Request a Quote</span>
-              <span className="absolute inset-0 z-0 translate-y-full bg-brass transition-transform duration-500 group-hover:translate-y-0" />
-            </Link>
+            <Button href="/quote" variant="primary" className="text-center">
+              Request a Quote
+            </Button>
             <a
               href="tel:616-475-5100"
-              className="text-center text-[14px] text-white/30 transition-colors hover:text-white/60"
+              className="text-center text-[14px] text-white/70 transition-colors hover:text-white"
             >
               or call 616-475-5100
             </a>

@@ -1,0 +1,52 @@
+{
+  "generatedAt": "2026-03-31T09:41:41.191Z",
+  "company": "Gilmore Furniture Inc.",
+  "location": "Grand Rapids, MI 49548",
+  "summary": {
+    "totalRawMatches": 0,
+    "uniqueOpportunities": 0,
+    "activeOpen": 0,
+    "presolicitation": 0,
+    "pastDeadline": 0
+  },
+  "naicsCodesSearched": {
+    "238350": "Finish Carpentry Contractors",
+    "314999": "Miscellaneous Textile Product Mills",
+    "332322": "Sheet Metal Work Manufacturing",
+    "332439": "Other Metal Container Manufacturing",
+    "332510": "Hardware Manufacturing",
+    "332812": "Metal Coating, Engraving & Heat Treating (Powder Coat)",
+    "332999": "Miscellaneous Fabricated Metal Product Manufacturing",
+    "336360": "Motor Vehicle Seating and Interior Trim Manufacturing",
+    "336413": "Other Aircraft Part and Auxiliary Equipment Manufacturing",
+    "337121": "Upholstered Household Furniture Manufacturing",
+    "337122": "Nonupholstered Wood Household Furniture Manufacturing",
+    "337127": "Institutional Furniture Manufacturing",
+    "337211": "Wood Office Furniture Manufacturing",
+    "337214": "Office Furniture (except Wood) Manufacturing",
+    "337215": "Showcase, Partition, Shelving, and Locker Manufacturing",
+    "339999": "All Other Miscellaneous Manufacturing"
+  },
+  "keywordsSearched": [
+    "furniture manufacturing",
+    "metal fabrication military",
+    "tactical textile",
+    "upholstery military",
+    "weapon storage system",
+    "armory furniture",
+    "barracks furniture",
+    "shipboard furniture",
+    "office furniture government",
+    "CNC machining defense",
+    "seating military vehicle",
+    "locker storage military",
+    "workstation government",
+    "cabinet government",
+    "powder coating defense",
+    "transit case",
+    "equipment enclosure"
+  ],
+  "activeOpportunities": [],
+  "upcomingOpportunities": [],
+  "recentlyClosed": []
+}

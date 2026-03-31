@@ -7,31 +7,31 @@ import Link from "next/link";
 
 const products = [
   {
-    title: "Cylinder & Cube Tables",
+    title: "Lounge",
     description:
-      "The industry standard for monoform tables — made in veneer, laminate, metal; unfinished or finished.",
-    image: "/images/CylinderTables-350x450_73bb2661.jpg",
+      "Fine lounge products upholstered in leather or fabric, crafted with incredible attention to detail.",
+    image: "/images/solutions/lounge-seating/cumberland_WS_LN_revo_001.jpg",
     size: "tall" as const,
   },
   {
-    title: "Occasional Tables",
+    title: "Sofas",
     description:
-      "Small-lot, made-to-order, high-quality table production at an extremely reasonable price.",
-    image: "/images/Tusk-Tables-359x423_b8c23323.jpg",
+      "Contract-grade sofas built for hospitality, corporate, and healthcare environments.",
+    image: "/images/solutions/seating/sofas/cumberland_WS_SF_elle_002.jpg",
     size: "tall" as const,
   },
   {
-    title: "Benches",
+    title: "Benches & Ottomans",
     description:
       "High-quality seating crafted with extraordinary attention to detail and built to withstand the toughest use.",
-    image: "/images/Sirra-Bench-370x443_8c2ffa0c.jpg",
+    image: "/images/solutions/seating/benches-ottomans/cumberland_WS_BN_cambridge_002.jpg",
     size: "tall" as const,
   },
   {
-    title: "Lounge Seating",
+    title: "Meeting Tables",
     description:
-      "Fine products upholstered in leather or fabric, crafted by trained upholstery artisans.",
-    image: "/images/Venlo-Lounge-Pair-418x323_57c611d7.jpg",
+      "Conference and meeting tables engineered for today's collaborative workspaces.",
+    image: "/images/solutions/tables/meeting/cumberland_WS_MT_revo_001.jpg",
     size: "wide" as const,
   },
 ];
@@ -42,7 +42,7 @@ export default function FeaturedCollections() {
 
   return (
     <section className="relative overflow-hidden bg-slate-900 py-24 lg:py-32">
-      <div className="mx-auto max-w-[1800px] px-10 md:px-20 lg:px-28">
+      <div className="mx-auto max-w-[1440px] px-6 sm:px-10 md:px-20 lg:px-28">
         {/* Header */}
         <div ref={ref} className="mb-20 flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
           <div>
@@ -50,7 +50,7 @@ export default function FeaturedCollections() {
               initial={{ opacity: 0, y: 20 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.8 }}
-              className="mb-4 block text-[11px] font-semibold uppercase tracking-[0.4em] text-brass"
+              className="mb-4 block text-xs font-semibold uppercase tracking-[0.4em] text-brass"
             >
               Capabilities
             </motion.span>
@@ -70,7 +70,7 @@ export default function FeaturedCollections() {
               initial={{ opacity: 0 }}
               animate={isInView ? { opacity: 1 } : {}}
               transition={{ duration: 0.8, delay: 0.2 }}
-              className="mt-5 max-w-xl text-[15px] leading-relaxed text-white/40"
+              className="mt-5 max-w-xl text-[15px] leading-relaxed text-white/70"
             >
               Everything but the name on the box. We manufacture complete pieces
               ready for your catalog.
@@ -92,7 +92,7 @@ export default function FeaturedCollections() {
         </div>
 
         {/* Product grid */}
-        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
+        <div className="grid gap-6 sm:grid-cols-2 sm:gap-8 lg:grid-cols-4">
           {products.map((product, i) => (
             <motion.div
               key={product.title}
@@ -106,7 +106,7 @@ export default function FeaturedCollections() {
             >
               <Link
                 href="/solutions"
-                className="group relative block h-[480px] overflow-hidden rounded-sm"
+                className="group relative block h-[360px] overflow-hidden rounded-sm sm:h-[480px]"
               >
                 <Image
                   src={product.image}
@@ -117,12 +117,12 @@ export default function FeaturedCollections() {
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent" />
 
-                <div className="absolute inset-x-0 bottom-0 p-10">
+                <div className="absolute inset-x-0 bottom-0 p-6 sm:p-10">
                   <h3 className="font-serif text-xl font-medium text-white">
                     {product.title}
                   </h3>
                   <div className="mt-3 h-[2px] w-10 bg-brass transition-all duration-500 group-hover:w-16" />
-                  <p className="mt-4 text-[13px] leading-relaxed text-white/50 opacity-0 transition-all duration-500 group-hover:opacity-100">
+                  <p className="mt-4 text-[13px] leading-relaxed text-white/70">
                     {product.description}
                   </p>
                 </div>
