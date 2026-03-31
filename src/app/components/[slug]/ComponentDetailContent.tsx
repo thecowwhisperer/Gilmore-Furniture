@@ -107,7 +107,7 @@ export default function ComponentDetailContent({
                     </div>
                     <div className="group relative aspect-[4/3] overflow-hidden rounded border border-charcoal/10 bg-white md:aspect-auto">
                       <Image
-                        src={component.gallery[1]}
+                        src={component.gallery[1]!}
                         alt={component.galleryAlts[1] ?? component.title}
                         fill
                         className="object-contain p-4 transition-transform duration-500 group-hover:scale-105"
