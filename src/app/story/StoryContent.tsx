@@ -49,7 +49,7 @@ export default function StoryPage() {
         {/* Hero */}
         <section className="relative flex min-h-[55vh] items-end overflow-hidden pb-28 pt-48">
           <Image
-            src="/images/WC18_Gilmore__51-300x300_8e3387e9.jpg"
+            src="/images/WC18_Gilmore__67_banner_3.jpg"
             alt="The Gilmore workshop"
             fill
             className="object-cover"

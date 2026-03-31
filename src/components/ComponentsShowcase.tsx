@@ -132,7 +132,7 @@ export default function ComponentsShowcase() {
                   alt={comp.title}
                   fill
                   className="object-cover transition-transform duration-700 group-hover:scale-105"
-                  sizes="460px"
+                  sizes="(max-width: 640px) 280px, (max-width: 768px) 400px, 480px"
                   draggable={false}
                 />
                 <div className="absolute inset-0 bg-black/0 transition-colors duration-500 group-hover:bg-black/10" />

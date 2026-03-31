@@ -20,12 +20,10 @@ const raw = [
     gallery: [
       "/images/components/conference-table-bases/cumberland_WS_MT_metros_conference_boat_002.jpg",
       "/images/components/conference-table-bases/cumberland_WS_MT_metros_001.jpg",
-      "/images/components/conference-table-bases/cumberland_DET_MT_metros_001.jpg",
     ],
     galleryAlts: [
       "Metros boat-shaped conference table base alternate view",
       "Metros conference table base",
-      "Metros table base detail",
     ],
     features: [
       "Grade A select veneer faces",

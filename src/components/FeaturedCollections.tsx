@@ -113,7 +113,7 @@ export default function FeaturedCollections() {
                   alt={product.title}
                   fill
                   className="object-cover opacity-70 transition-all duration-700 group-hover:scale-110 group-hover:opacity-100"
-                  sizes="(max-width: 768px) 100vw, 25vw"
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent" />
 

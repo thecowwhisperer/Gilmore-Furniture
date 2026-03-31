@@ -89,7 +89,7 @@ export default function QuotePage() {
         {/* Hero */}
         <section className="relative flex min-h-[45vh] items-end overflow-hidden pb-24 pt-48">
           <Image
-            src="/images/CompleteFeatureSlider-539x367_7ac3ec23.jpg"
+            src="/images/Header Images/cumberland_DET_revo_002.jpg"
             alt="Gilmore Furniture manufacturing"
             fill
             className="object-cover"
@@ -275,14 +275,14 @@ export default function QuotePage() {
                       <p className="mb-6 text-[13px] text-muted">
                         Select all that apply.
                       </p>
-                      <div className="grid grid-cols-2 gap-3 md:grid-cols-4">
+                      <div className="grid grid-cols-2 gap-3 sm:gap-4 md:grid-cols-4">
                         {productInterests.map((product) => (
                           <button
                             key={product}
                             type="button"
                             aria-pressed={selectedProducts.includes(product)}
                             onClick={() => toggleProduct(product)}
-                            className={`border px-4 py-3.5 text-[12px] leading-snug transition-all duration-300 ${
+                            className={`border px-3 py-3.5 text-[12px] leading-snug transition-all duration-300 sm:px-4 ${
                               selectedProducts.includes(product)
                                 ? "border-brass bg-brass/10 text-charcoal"
                                 : "border-charcoal/15 bg-white text-muted hover:border-charcoal/25"

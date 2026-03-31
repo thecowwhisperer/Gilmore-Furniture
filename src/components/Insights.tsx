@@ -81,7 +81,7 @@ export default function Insights() {
                     alt={post.title}
                     fill
                     className="object-cover transition-transform duration-700 group-hover:scale-105"
-                    sizes="(max-width: 768px) 100vw, 33vw"
+                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                   />
                 </div>
                 <div className="mb-4 flex items-center gap-4 text-xs font-semibold uppercase tracking-[0.2em] text-muted">
