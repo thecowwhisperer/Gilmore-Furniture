@@ -8,32 +8,32 @@ const materials = [
   {
     title: "Solid Wood",
     description: "Domestic and exotic species — oak, walnut, maple, cherry, ash, and more.",
-    image: "/images/materials/Maple/maple.jpg",
+    image: "/images/Materials/Maple/maple.jpg",
   },
   {
     title: "Stone & Glass",
     description: "Integrated with wood and metal frames for complete furniture assemblies.",
-    image: "/images/materials/Stone%20%26%20Glass/glass.jpg",
+    image: "/images/Materials/Stone%20%26%20Glass/glass.jpg",
   },
   {
     title: "Stainless & Carbon Steel",
     description: "Polished, brushed, or powder coated — from furniture components to marine hardware.",
-    image: "/images/materials/Stainless%20%26%20Carbon%20Steel/steel.jpg",
+    image: "/images/Materials/Stainless%20%26%20Carbon%20Steel/steel.jpg",
   },
   {
     title: "Leather & Fabric",
     description: "Contract-grade upholstery materials crafted by trained artisans.",
-    image: "/images/materials/Leather%20%26%20Fabric/leather.jpg",
+    image: "/images/Materials/Leather%20%26%20Fabric/leather.jpg",
   },
   {
     title: "Aluminum",
     description: "Lightweight fabrications machined and finished to precision tolerances.",
-    image: "/images/materials/Aluminum/aluminum.jpg",
+    image: "/images/Materials/Aluminum/aluminum.jpg",
   },
   {
     title: "Veneer & Laminate",
     description: "Grade A select veneer faces and premium laminates for wrapping complex shapes.",
-    image: "/images/materials/Veneer%20%26%20Laminate/laminate.jpg",
+    image: "/images/Materials/Veneer%20%26%20Laminate/laminate.jpg",
   },
 ];
 
