@@ -124,6 +124,7 @@ export default function Navigation() {
 
   useEffect(() => {
     document.body.style.overflow = menuOpen ? "hidden" : "";
+    window.dispatchEvent(new CustomEvent("mobileMenuChange", { detail: menuOpen }));
     return () => {
       document.body.style.overflow = "";
     };

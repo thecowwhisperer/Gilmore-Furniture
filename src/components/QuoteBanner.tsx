@@ -1,21 +1,30 @@
 "use client";
 
 import { motion, useScroll, useMotionValueEvent } from "framer-motion";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
 
 export default function QuoteBanner() {
   const { scrollY } = useScroll();
   const [visible, setVisible] = useState(false);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   useMotionValueEvent(scrollY, "change", (latest) => {
     setVisible(latest > 600);
   });
 
+  useEffect(() => {
+    const handler = (e: Event) => {
+      setMobileMenuOpen((e as CustomEvent<boolean>).detail);
+    };
+    window.addEventListener("mobileMenuChange", handler);
+    return () => window.removeEventListener("mobileMenuChange", handler);
+  }, []);
+
   return (
     <motion.div
       initial={{ y: "100%" }}
-      animate={{ y: visible ? "0%" : "100%" }}
+      animate={{ y: visible && !mobileMenuOpen ? "0%" : "100%" }}
       transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
       className="fixed bottom-0 left-0 right-0 z-50 border-t border-white/10 bg-charcoal/95 backdrop-blur-md"
     >
